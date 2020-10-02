@@ -1,0 +1,30 @@
+GET http://localhost:3000/users
+
+###
+POST http://localhost:3000/productos/create
+
+###
+GET http://localhost:3000/productos/43
+
+###
+GET http://localhost:3000/documentos/curriculum.doc
+###
+GET http://localhost:3000/documentos/curriculum.pdf
+###
+GET http://localhost:3000/documentos/hacienda.doc
+###
+GET http://localhost:3000/documentos/hacienda.csv
+
+###
+POST http://localhost:3000/documentos/nuevo
+Content-Type: application/json
+
+{
+    "nombre": "trabajo fin carrera",
+    "extension": "pdf",
+    "autor": "Mario Girón",
+    "categoria": "trabajos"
+}
+
+###
+GET http://localhost:3000/documentos/all?pages=5&order=nombre&filter=autor

@@ -1,5 +1,12 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+h2 Cabecera de la página
+p= title
+p El título es: #{title}
+.primero
+  p Parrafo 1
+  p Parrafo 2
+  p Parrafo 3
+.segundo
+  a(href="http://www.google.com", target="_blank", id="enlaceGoogle") Google.com
+  a(href="http://20minutos.es", class="enlace") 20Minutos.es
+.tercero
+  p#main.principal.rojo.border-gray Este es el párrafo principal
