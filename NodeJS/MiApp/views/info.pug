@@ -1,0 +1,12 @@
+extends layout.pug
+
+block contenido
+    h2 Página de información
+    include includes/subcabecera.pug
+    +lista(ciudades)
+    - let arrVacio = []
+    +lista(arrVacio)
+    div
+        | Esto es texto plano
+    script.
+        console.log('Hola');

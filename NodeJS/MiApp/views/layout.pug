@@ -1,7 +1,19 @@
+mixin lista(arr)
+	ul
+		each elem in arr
+			li= elem
+		else
+			li No hay elementos
+
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		include includes/cabecera.pug
+		.container
+			block contenido
+		footer
+			block footer
+				p Footer por defecto

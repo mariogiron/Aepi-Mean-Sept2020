@@ -1,12 +1,38 @@
-h2 Cabecera de la página
-p= title
-p El título es: #{title}
-.primero
-  p Parrafo 1
-  p Parrafo 2
-  p Parrafo 3
-.segundo
-  a(href="http://www.google.com", target="_blank", id="enlaceGoogle") Google.com
-  a(href="http://20minutos.es", class="enlace") 20Minutos.es
-.tercero
-  p#main.principal.rojo.border-gray Este es el párrafo principal
+extends layout.pug
+
+block contenido
+	include includes/subcabecera.pug
+	.primero
+		p Parrafo 1
+		p Parrafo 2
+		p Parrafo 3
+	.segundo
+		a(href="http://www.google.com", target="_blank", id="enlaceGoogle") Google.com
+		a(href="http://20minutos.es", class="enlace") 20Minutos.es
+	.tercero
+		p#main.principal.rojo.border-gray Este es el párrafo principal
+	.cuarto
+		//- Con esto hacemos un switch-case
+		// Comentario para el HTML
+		case productos
+			when 0
+				p No tienes productos
+			when 1
+				p Tienes un producto
+			default
+				p Tienes #{productos} productos
+	.quinto
+		- let animales2 = []
+		ul
+			- for(let i = 0; i<animales.length; i++)
+				li= animales[i]
+	.sexto
+		ul
+			each animal, index in animales2
+				//- li= index + ': ' + animal
+				li #{index}: #{animal}
+			else
+				li No existen animales
+
+block footer
+	p Footer del INDEX
