@@ -1,1 +1,25 @@
 GET http://localhost:3000/pruebas/insert
+
+###
+GET http://localhost:3000/pruebas/insert_v2
+
+###
+GET http://localhost:3000/pruebas/insert_v3
+
+###
+GET http://localhost:3000/pruebas/find
+
+###
+GET http://localhost:3000/pruebas/find_by_name
+
+###
+GET http://localhost:3000/pruebas/find_mayores_edad
+
+###
+GET http://localhost:3000/pruebas/modificar
+
+###
+GET http://localhost:3000/pruebas/modificar_v2
+
+###
+GET http://localhost:3000/pruebas/modificar_v3

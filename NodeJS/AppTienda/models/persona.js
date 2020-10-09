@@ -9,4 +9,8 @@ const personaSchema = new Schema({
     activo: Boolean
 });
 
+personaSchema.virtual('nombre_completo').get(function () {
+    return this.nombre + ' ' + this.apellidos;
+});
+
 module.exports = mongoose.model('persona', personaSchema);

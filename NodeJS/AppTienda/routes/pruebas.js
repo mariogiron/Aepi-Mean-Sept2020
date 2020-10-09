@@ -71,7 +71,37 @@ router.get('/find_by_name', async (req, res) => {
 // Recupero los que son mayores de edad
 router.get('/find_mayores_edad', async (req, res) => {
     const personas = await Persona.find({ edad: { $gt: 18, $lt: 65 } });
+    // Acceder a la propiedad virtual nombre_completo
+    for (let persona of personas) {
+        console.log(persona.nombre_completo);
+    }
     res.json(personas);
+});
+
+// Modificar una persona concreta
+router.get('/modificar', (req, res) => {
+    Persona.findById('5f808480641683895dba0d98')
+        .then(persona => {
+            persona.nombre = 'NombreModificado';
+            persona.save();
+            res.json(persona);
+        })
+        .catch(error => console.log(error));
+});
+
+// Modificar una persona V2
+router.get('/modificar_v2', (req, res) => {
+    Persona.findByIdAndUpdate('5f808480641683895dba0d98', { apellidos: 'García' }, { new: true })
+        .then(personaEditada => {
+            res.json(personaEditada);
+        })
+        .catch(error => console.log(error));
+});
+
+// Modificar las personas que cumplan una condición
+router.get('/modificar_v3', async (req, res) => {
+    const resultado = await Persona.update({ activo: true }, { $set: { activo: false } });
+    res.json(resultado);
 });
 
 module.exports = router;

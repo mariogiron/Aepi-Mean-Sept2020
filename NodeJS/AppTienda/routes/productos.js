@@ -16,6 +16,18 @@ router.get('/departamento/:departamento', async (req, res) => {
     res.render('productos/index', { productos });
 });
 
+// GET /productos/edit/IDPRODUCTO - Muestra un formulario para editar un producto
+router.get('/edit/:idProducto', async (req, res) => {
+    const producto = await Producto.findById(req.params.idProducto);
+    res.render('productos/edit', { producto })
+});
+
+// GET /productos/delete/IDPRODUCTO - Borra un producto
+router.get('/delete/:idProducto', async (req, res) => {
+    await Producto.findByIdAndDelete(req.params.idProducto);
+    res.redirect('/productos');
+});
+
 // GET /productos/new - Formulario con los datos para crear el producto
 router.get('/new', (req, res) => {
     res.render('productos/new');
@@ -31,6 +43,16 @@ router.post('/create', async (req, res) => {
     try {
         console.log(req.body);
         const nuevoProducto = await Producto.create(req.body);
+        res.redirect('/productos');
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+// POST /productos/update - Actualiza un producto
+router.post('/update', async (req, res) => {
+    try {
+        await Producto.findByIdAndUpdate(req.body.id, req.body);
         res.redirect('/productos');
     } catch (error) {
         console.log(error);

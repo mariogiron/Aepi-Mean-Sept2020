@@ -2,17 +2,32 @@ extends ../layout.pug
 
 block content
     h2 Todos los productos
-    table.table
+    table.table.table-striped
         thead
             tr
+                th Id
                 th Nombre
                 th Descripción
                 th Precio
                 th Departamento
+                th Acciones
         tbody
             each producto in productos
                 tr
+                    td= producto._id
                     td= producto.nombre
                     td= producto.descripcion
                     td= producto.precio
                     td= producto.departamento
+                    td
+                        a.btn.btn-sm.btn-info(href="/productos/edit/"+producto._id) Editar
+                        a.btn.btn-sm.btn-danger.ml-2(href="/productos/delete/"+producto._id, onclick="return confirm('¿Quieres borrar este producto?')") Borrar
+    script.
+        const enlaceEditar = document.querySelector('a.btn-info');
+        enlaceEditar.addEventListener('click', (e)=>{
+            //- e.preventDefault();
+            //- alert('Pulsa Enlace');
+            //- const url = e.target.href;
+            //- fetch()
+            //- Lanzar el modal
+        });
