@@ -2,3 +2,17 @@ extends ../layout.pug
 
 block content
     h2 Todos los productos
+    table.table
+        thead
+            tr
+                th Nombre
+                th Descripción
+                th Precio
+                th Departamento
+        tbody
+            each producto in productos
+                tr
+                    td= producto.nombre
+                    td= producto.descripcion
+                    td= producto.precio
+                    td= producto.departamento
