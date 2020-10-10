@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Persona = require('../models/persona');
+const Producto = require('../models/producto');
 
 // Insertar una persona
 router.get('/insert', (req, res) => {
@@ -104,4 +105,27 @@ router.get('/modificar_v3', async (req, res) => {
     res.json(resultado);
 });
 
+// Recuperar todos los productos del mismo departamento
+router.get('/mismo_departamento', (req, res) => {
+    const prod = new Producto();
+    prod.departamento = 'electrodomesticos';
+
+    // prod.mismoDepartamento((err, productos) => {
+    //     if (err) return console.log(err);
+    //     res.json(productos);
+    // });
+
+    prod.mismoDepartamentoV2()
+        .then(productos => res.json(productos))
+        .catch(error => console.log(error));
+});
+
+// Recuperar todas las personas activas
+router.get('/activas', async (req, res) => {
+    const personasActivas = await Persona.activos();
+    res.json(personasActivas);
+});
+
 module.exports = router;
+
+// DRY - KISS - Fat Model Skinny Controller

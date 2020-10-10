@@ -35,7 +35,11 @@ router.get('/new', (req, res) => {
 
 // GET /productos/IDPRODUCTO - Recupera un único producto
 router.get('/:productoId', (req, res) => {
-    res.render('productos/detail')
+    Producto.findById(req.params.productoId)
+        .then(producto => {
+            res.render('productos/detail', { producto });
+        })
+        .catch(error => console.log(error));
 });
 
 // POST /productos/create - Genera un nuevo producto

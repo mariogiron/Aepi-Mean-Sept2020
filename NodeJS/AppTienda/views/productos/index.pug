@@ -20,7 +20,8 @@ block content
                     td= producto.precio
                     td= producto.departamento
                     td
-                        a.btn.btn-sm.btn-info(href="/productos/edit/"+producto._id) Editar
+                        a.btn.btn-sm.btn-primary(href="/productos/"+producto._id) Ver
+                        a.btn.btn-sm.btn-info.ml-2(href="/productos/edit/"+producto._id) Editar
                         a.btn.btn-sm.btn-danger.ml-2(href="/productos/delete/"+producto._id, onclick="return confirm('¿Quieres borrar este producto?')") Borrar
     script.
         const enlaceEditar = document.querySelector('a.btn-info');

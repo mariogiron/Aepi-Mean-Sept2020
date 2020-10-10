@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const urlMongoDb = 'mongodb://127.0.0.1/aepi';
+const urlMongoDb = process.env.MONGODB_URL;
 
 mongoose.connect(urlMongoDb, {
     useNewUrlParser: true,

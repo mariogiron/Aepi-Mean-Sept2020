@@ -23,3 +23,52 @@ GET http://localhost:3000/pruebas/modificar_v2
 
 ###
 GET http://localhost:3000/pruebas/modificar_v3
+
+### API
+GET http://localhost:3000/api/productos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOiI1ZjgxOGI3ZTY1ZjM3NTUwNzc2YjVlZjYiLCJmZWNoYUNyZWFjaW9uIjoxNjAyMzMwODYxLCJmZWNoYUV4cGlyYWNpb24iOjE2MDIzMzE0NjEsImlhdCI6MTYwMjMzMDg2MX0.ebU-Z2uKzSX5vkNsITFFBobAQ2A5Tdj5FDAHu1w0L4c
+
+###
+POST http://localhost:3000/api/productos
+Content-Type: application/json
+
+{
+    "nombre": "Picadora",
+    "precio": "312",
+    "descripcion": "Para hacer papilla",
+    "departamento": "informatica"
+}
+
+###
+PUT http://localhost:3000/api/productos
+Content-Type: application/json
+
+{
+    "id": "5f8173462a054e2fc2028e7f",
+    "precio": 219,
+    "descripcion": "Muy buen electrodomésticos"
+}
+
+###
+DELETE http://localhost:3000/api/productos/5f8173462a054e2fc2028e7f
+
+###
+POST http://localhost:3000/api/usuarios/registro
+Content-Type: application/json
+
+{
+    "nombre":"Laura",
+    "apellidos": "García",
+    "username": "lauga",
+    "password": "12345",
+    "email": "laura@gmail.com"
+}
+
+###
+POST http://localhost:3000/api/usuarios/login
+Content-Type: application/json
+
+{
+    "email": "laura@gmail.com",
+    "password": "12345"
+}
