@@ -1,7 +1,22 @@
-<h2>Hola Mundo</h2>
+<!-- <h2>Hola Mundo</h2>
+
+<h3>{{ valorSelect }}</h3>
+<select (change)="cambiaSelect($event)">
+    <option value="uno">Uno</option>
+    <option value="dos">Dos</option>
+    <option value="tres">Tres</option>
+    <option value="cuatro">Cuatro</option>
+</select> -->
 
 <!-- <saludo></saludo> -->
-<crono></crono>
-<crono></crono>
-<crono></crono>
-<crono></crono>
+<div class="cronometros">
+    <crono [contador]="contadores[0]" (terminaCrono)="onTerminaCrono($event)"></crono>
+    <crono [contador]="contadores[1]" (terminaCrono)="onTerminaCrono($event)"></crono>
+    <crono [contador]="contadores[2]"></crono>
+    <crono [contador]="contadores[3]"></crono>
+</div>
+
+<app-sumar [num1]="56" [num2]="32"></app-sumar>
+<app-sumar [num1]="contadores[3]" [num2]="2"></app-sumar>
+
+<app-formulario></app-formulario>

@@ -1,3 +1,7 @@
 h2 {
     color: tomato;
 }
+
+.cronometros {
+    display: flex;
+}

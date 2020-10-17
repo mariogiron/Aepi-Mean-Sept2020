@@ -1,4 +1,4 @@
 <div class="cronometro">
-    <p (mouseenter)="entraRaton()">{{ contador }}</p>
+    <p (mouseenter)="entraRaton($event)">{{ contador }}</p>
     <button (click)="arrancaContador()">Start</button>
 </div>

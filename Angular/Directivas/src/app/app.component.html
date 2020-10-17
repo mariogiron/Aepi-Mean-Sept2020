@@ -1,0 +1,14 @@
+<div>
+  <button (click)="cambiaColor('red')">Rojo</button>
+  <button (click)="cambiaColor('green')">Verde</button>
+  <button (click)="cambiaColor('blue')">Azul</button>
+</div>
+<input type="text" (input)="onInput($event)">
+<input type="range" (input)="onInputRange($event)">
+<p [ngStyle]="estilosParrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur officiis
+  dignissimos ipsum accusantium sit fugit
+  vero voluptatem magni quibusdam iusto quaerat, dolor est quis repudiandae optio, doloremque officia nam temporibus?
+</p>
+
+<p [ngClass]="{ parrafo: activaClase }">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, doloremque.
+</p>

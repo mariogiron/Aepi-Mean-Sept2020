@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'crono',
@@ -7,13 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CronometroComponent implements OnInit {
 
-  contador: number;
+  @Input() contador: number;
+
+  @Output() terminaCrono: EventEmitter<string>;
 
   constructor() {
     this.contador = 10;
+    this.terminaCrono = new EventEmitter();
   }
 
   ngOnInit(): void {
+
   }
 
   arrancaContador() {
@@ -21,11 +25,14 @@ export class CronometroComponent implements OnInit {
       this.contador--;
       if (this.contador === 0) {
         clearInterval(interval);
+        this.terminaCrono.emit('El contador ha terminado');
       }
     }, 1000);
   }
 
-  entraRaton() {
+  entraRaton($event) {
+    console.log($event.target);
+    $event.target.style.color = 'green';
     console.log('Entra el ratón en el párrafo');
   }
 

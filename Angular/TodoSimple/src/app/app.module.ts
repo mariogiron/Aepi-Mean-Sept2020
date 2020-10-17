@@ -3,18 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { SaludoComponent } from './saludo/saludo.component';
-import { CronometroComponent } from './cronometro/cronometro.component';
-import { SumarComponent } from './sumar/sumar.component';
-import { FormularioComponent } from './formulario/formulario.component';
+import { FormularioComponent } from './components/formulario/formulario.component';
+import { ListaComponent } from './components/lista/lista.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SaludoComponent,
-    CronometroComponent,
-    SumarComponent,
-    FormularioComponent
+    FormularioComponent,
+    ListaComponent
   ],
   imports: [
     BrowserModule,

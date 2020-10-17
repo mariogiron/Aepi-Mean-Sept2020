@@ -6,5 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'MiPrimeraApp';
+
+  valorSelect: string;
+  contadores: number[];
+
+  constructor() {
+    this.valorSelect = 'valor inicial';
+    this.contadores = [5, 7, 9, 11];
+  }
+
+  cambiaSelect($event) {
+    console.log($event.target.value);
+    this.valorSelect = $event.target.value;
+  }
+
+  onTerminaCrono($event) {
+    console.log($event);
+  }
+
 }

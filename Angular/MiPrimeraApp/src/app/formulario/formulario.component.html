@@ -1,0 +1,23 @@
+<input type="text" [(ngModel)]="campoNombre">
+<p>{{ campoNombre }}</p>
+<button (click)="onClick()">Cambia el nombre</button>
+
+<div class="formUsuario">
+    <div>
+        <label>Nombre</label>
+        <input type="text" [(ngModel)]="usuario.nombre">
+    </div>
+    <div>
+        <label>Nick</label>
+        <input type="text" [(ngModel)]="usuario.nick">
+    </div>
+    <div>
+        <label>Email</label>
+        <input type="text" [(ngModel)]="usuario.email">
+    </div>
+    <div>
+        <label>Password</label>
+        <input type="password" [(ngModel)]="usuario.password">
+    </div>
+</div>
+{{ usuario | json }}
