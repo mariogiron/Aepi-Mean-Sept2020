@@ -1,0 +1,20 @@
+.episodios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.episodio {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+}
+
+.fila-par {
+    background-color: lightblue;
+}
+
+.fila-impar {
+    background-color: lightgray;
+}

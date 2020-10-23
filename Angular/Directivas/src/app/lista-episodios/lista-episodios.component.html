@@ -1,0 +1,46 @@
+<button (click)="onAddEpisode()">Agregar Episodio</button>
+
+<div class="episodios">
+    <div class="episodio" *ngFor="let episodio of episodios">
+        <h3>{{ episodio.title }}</h3>
+        <p>Director: {{ episodio.director }}</p>
+    </div>
+</div>
+
+<ul>
+    <li *ngFor="let episodio of episodios">
+        {{ episodio.title }} - {{ episodio.director }}
+    </li>
+</ul>
+
+<table>
+    <thead>
+        <tr>
+            <th>Índice</th>
+            <th>Título</th>
+            <th>Director</th>
+            <th>Primero</th>
+            <th>Último</th>
+            <th>Par</th>
+            <th>Impar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let episodio of episodios; 
+            let indice = index; 
+            let primero = first; 
+            let ultimo = last; 
+            let par = even; 
+            let impar = odd;" [ngClass]="{ 'fila-par': par, 'fila-impar': !par }">
+            <td>{{ indice }}</td>
+            <td>{{ episodio.title }}</td>
+            <td>{{ episodio.director }}</td>
+            <td>{{ primero }}</td>
+            <td>{{ ultimo }}</td>
+            <td>{{ par }}</td>
+            <td>{{ impar }}</td>
+            <td *ngIf="primero">PRIMERO</td>
+            <td *ngIf="ultimo">ÚLTIMO</td>
+        </tr>
+    </tbody>
+</table>

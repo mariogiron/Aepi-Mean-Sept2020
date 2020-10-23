@@ -1,0 +1,15 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-4">
+      <app-formulario (enviaEmpleado)="onEnviaEmpleado($event)"></app-formulario>
+    </div>
+    <div class="col-8">
+      <app-lista [empleados]="arrEmpleados"></app-lista>
+    </div>
+  </div>
+</div>
+
+<app-detalle [empleado]="{nombre: 'Daniel', apellidos: 'Redondo', dni: '0992139213', departamento: 'marketing'}">
+</app-detalle>
+
+<app-lista [empleados]="recuperarFiltrados('contabilidad')"></app-lista>

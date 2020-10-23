@@ -1,0 +1,7 @@
+<button (click)="onClick()">MUESTRA / OCULTA</button>
+<div class="semaforo" *ngIf="mostrar" [ngClass]="{ 
+    rojo: (color === 'rojo'), 
+    verde: (color === 'verde'), 
+    amarillo: (color === 'amarillo')
+}"></div>
+<p *ngIf="!mostrar">Semáforo no disponible</p>

@@ -1,2 +1,8 @@
-<div [innerHTML]="generarLista()">
-</div>
+<!-- <div [innerHTML]="generarLista()">
+</div> -->
+
+<ul>
+    <li *ngFor="let tarea of tareas">
+        {{ tarea.titulo}} {{tarea.descripcion}}
+    </li>
+</ul>
