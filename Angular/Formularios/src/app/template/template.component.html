@@ -1,0 +1,27 @@
+<form #formulario="ngForm" (ngSubmit)="onSubmit(formulario.value)">
+    <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" name="nombre" class="form-control" ngModel>
+    </div>
+    <div class="form-group">
+        <label>Apellidos</label>
+        <input type="text" name="apellidos" class="form-control" ngModel>
+    </div>
+    <div class="form-group">
+        <label>Edad</label>
+        <input type="text" name="edad" class="form-control" ngModel>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" name="email" class="form-control" ngModel>
+    </div>
+    <input type="submit" value="Enviar" class="btn btn-block btn-info">
+</form>
+{{ formulario.value | json  }}
+
+<!-- Recupero elementos del DOM -->
+<div>
+    <button id="botonPrimero">PRIMERO</button>
+    <button #botonSegundo>SEGUNDO</button>
+    <button (click)="recuperarBotones()">RECUPERAR</button>
+</div>

@@ -15,6 +15,7 @@ export class CursosComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.id = params.idCurso;
+      // Petición al server para que me devuelva el curso
     });
   }
 

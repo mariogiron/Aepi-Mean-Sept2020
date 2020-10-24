@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col-8">
+        <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" formControlName="nombre">
+                <p class="error"
+                    *ngIf="formulario.get('nombre').hasError('required') && formulario.get('nombre').touched">
+                    El campo nombre es obligatorio
+                </p>
+            </div>
+            <div class="form-group">
+                <label>Apellidos</label>
+                <input type="text" class="form-control" formControlName="apellidos">
+                <p class="error"
+                    *ngIf="formulario.get('apellidos').hasError('required') && formulario.get('apellidos').dirty">El
+                    campo apellidos es
+                    obligatorio</p>
+                <p class="error"
+                    *ngIf="formulario.get('apellidos').hasError('minlength') && formulario.get('apellidos').dirty">El
+                    campo apellidos debe tener un mínimo de
+                    {{ formulario.controls.apellidos.errors.minlength.requiredLength }} caracteres</p>
+            </div>
+            <div class="form-group">
+                <label>Edad</label>
+                <input type="text" class="form-control" formControlName="edad" required>
+                <p class="error"
+                    *ngIf="formulario.get('edad').hasError('edadvalidator') && formulario.get('edad').touched">
+                    El campo edad debe estar entre {{ formulario.controls.edad.errors.edadvalidator.min }} y
+                    {{ formulario.controls.edad.errors.edadvalidator.max }}
+                </p>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" formControlName="email">
+            </div>
+            <div class="form-group">
+                <label>dni</label>
+                <input type="text" class="form-control" formControlName="dni">
+                <p class="error"
+                    *ngIf="formulario.get('dni').hasError('dnivalidator') && formulario.get('dni').touched">
+                    {{ formulario.controls.dni.errors.dnivalidator }}
+                </p>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="text" class="form-control" formControlName="password">
+            </div>
+            <div class="form-group">
+                <label>Repite Password</label>
+                <input type="text" class="form-control" formControlName="passwordRepeat">
+                <p class="error" *ngIf="formulario.get('passwordRepeat').hasError('passwordrepeat')">
+                    El campo repite password debe ser igual que el campo password
+                </p>
+            </div>
+            <input type="submit" value="Enviar" [disabled]="!formulario.valid" class="btn btn-block btn-success">
+        </form>
+    </div>
+    <div class="col-4">
+        <div class="propiedades">
+            <p>Form Valid: {{ formulario.valid }}</p>
+            <p>Form Dirty: {{ formulario.dirty }}</p>
+            <p>Nombre Touched: {{ formulario.controls['nombre'].touched }}</p>
+            <p>Nombre Touched 2: {{ formulario.get('nombre').touched }}</p>
+            <p>Edad Pristine: {{ formulario.controls.edad.pristine }}</p>
+            <p>Errores Apellidos: {{ formulario.controls.apellidos.errors | json }}</p>
+            <p>Errores Apellidos: {{ formulario.get('apellidos').hasError('required') }}</p>
+            <p>Error Email: {{ formulario.controls.email.errors | json }}</p>
+            <p>Error Edad: {{ formulario.controls.edad.errors | json }}</p>
+            <p>Error DNI: {{ formulario.controls.dni.errors | json }}</p>
+            <p>Error Required Apellidos: {{ formulario.controls.apellidos.errors?.required | json }}</p>
+        </div>
+    </div>
+</div>
