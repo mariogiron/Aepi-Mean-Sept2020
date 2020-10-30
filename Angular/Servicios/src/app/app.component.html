@@ -1,0 +1,9 @@
+<button (click)="onClickMayores()">Mayores de 18</button>
+<button (click)="onClickTrabajo()">¿Trabajas?</button>
+<button (click)="onClickAgregar()">Agregar Persona</button>
+
+<ul>
+    <li *ngFor="let persona of personas">
+        {{ persona.nombre }} {{ persona.apellidos }}
+    </li>
+</ul>

@@ -1,0 +1,11 @@
+<div class="personajes">
+  <div class="personaje" *ngFor="let personaje of personajes"
+    [ngClass]="{ alive: (personaje.status === 'Alive'), dead: (personaje.status === 'Dead') }">
+    <h3>{{ personaje.name }}</h3>
+    <img [src]="personaje.image">
+    <ul>
+      <li>{{ personaje.species }}</li>
+      <li>{{ personaje.location.name }}</li>
+    </ul>
+  </div>
+</div>

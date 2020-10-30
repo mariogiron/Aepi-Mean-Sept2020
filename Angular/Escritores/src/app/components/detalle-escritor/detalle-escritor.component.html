@@ -1,0 +1,7 @@
+<div *ngIf="escritor">
+    <h4>{{ escritor.nombre }} {{ escritor.apellidos }}</h4>
+    <img [src]="escritor.imagen">
+    <p>{{ escritor.pais }}</p>
+</div>
+
+<router-outlet></router-outlet>
