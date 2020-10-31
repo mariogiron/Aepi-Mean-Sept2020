@@ -10,6 +10,9 @@ router.post('/registro', async (req, res) => {
     req.body.password = bcrypt.hashSync(req.body.password);
 
     const nuevoUsuario = await Usuario.create(req.body);
+
+    // MANDAR MAIL -> nodeMailer
+
     res.json({
         success: 'Usuario creado con éxito',
         usuario: nuevoUsuario

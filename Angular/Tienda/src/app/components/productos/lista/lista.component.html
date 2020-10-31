@@ -1,0 +1,25 @@
+<h2>Lista de productos</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>nombre</th>
+            <th>precio</th>
+            <th>descripción</th>
+            <th>departamento</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let producto of productos">
+            <td>{{ producto._id }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.precio }}</td>
+            <td>{{ producto.descripcion }}</td>
+            <td>{{ producto.departamento }}</td>
+            <td>
+                <button class="btn btn-sm btn-danger" (click)="onClickEliminar(producto)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

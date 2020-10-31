@@ -1,0 +1,12 @@
+<p>CURRENCY: {{ precio | currency:'EUR' }}</p>
+<p>NUMBER: {{ numero | number:'10.2-4' }}</p>
+<p>{{ fechaActual | date:'dd-MM-yyyy HH:mm.ss' }}</p>
+<p>{{ texto | titlecase }}</p>
+<p>{{ numeros | slice:2:5 }}</p>
+<ul>
+  <li *ngFor="let numero of numeros | slice:1:3">
+    {{ numero }}
+  </li>
+</ul>
+
+<p>{{ 'Hola Mundo' | reves }}</p>

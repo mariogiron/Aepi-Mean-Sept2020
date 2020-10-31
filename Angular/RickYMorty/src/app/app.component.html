@@ -1,3 +1,9 @@
+<h1>API Rick y Morty</h1>
+<div>
+  <button (click)="onClick(false)" [disabled]="paginaActual === 1">Anterior</button>
+  <button (click)="onClick(true)" [disabled]="paginaActual === numPaginas">Siguiente</button>
+</div>
+
 <div class="personajes">
   <div class="personaje" *ngFor="let personaje of personajes"
     [ngClass]="{ alive: (personaje.status === 'Alive'), dead: (personaje.status === 'Dead') }">

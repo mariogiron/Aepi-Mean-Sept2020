@@ -4,7 +4,7 @@ const { check, validationResult } = require('express-validator');
 
 router.get('/', (req, res) => {
 
-    // usaurio con login correcto
+    // usuario con login correcto
     console.log(req.user);
 
     Producto.find()

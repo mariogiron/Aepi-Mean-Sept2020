@@ -20,6 +20,8 @@ const checkToken = async (req, res, next) => {
         return res.status(401).json({ error: 'El token es incorrecto' });
     }
 
+    console.log(obj);
+
     // Comprobamos la expiración del Token
     const fechaActual = moment().unix();
     if (fechaActual > obj.fechaExpiracion) {
